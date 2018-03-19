@@ -1,0 +1,38 @@
+code for training the 
+
+
+
+
+NEXT step would be to use GANs to train better models
+
+
+
+'''
+mypath = './data/train'
+onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
+
+images = np.empty([len(onlyfiles),300,400,3], dtype='uint8')
+
+for root, dirnames, filenames in os.walk("/data/validation"):
+    for filename in filenames:
+        if re.search("\.(jpg|jpeg|png|bmp|tiff)$", filename):
+            filepath = os.path.join(root, filename)
+            image = ndimage.imread(filepath, mode="RGB")
+            image_resized = misc.imresize(image, (224, 224))
+            images.append(image_resized)
+
+
+h5f = h5py.File('images_in_h5_format.h5', 'w')
+h5f.create_dataset('dataset_1', data=images)
+
+'''
+
+#hey =[1,2,3,4]
+#print (len(images_valid))   #double brakets for python3
+#images 
+
+
+login to remote server through ssh
+
+akonwar@gantry.irisa.fr
+pass: KRi+w0(+
