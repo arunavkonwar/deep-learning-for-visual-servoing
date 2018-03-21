@@ -26,7 +26,7 @@ model = load_model('trained_model.h5')
 
 
 mypath='./data/train' 
-img = cv2.imread(mypath+'/1.jpg')
+img = cv2.imread(mypath+'/2.jpg')
 img_1 = cv2.resize(img, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
 img_main = img_1 [np.newaxis,...]  # dimension added to fit input size
 

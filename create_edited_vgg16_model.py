@@ -1,18 +1,14 @@
 
-import numpy as np
 import keras
-from keras import backend as K
 from keras.models import Sequential
 from keras.layers import Activation
 from keras.layers.core import Dense, Flatten
 from keras.optimizers import Adam
 from keras.metrics import categorical_crossentropy
-from keras.preprocessing.image import ImageDataGenerator
 from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import *
-from sklearn.metrics import confusion_matrix
-import itertools
 import matplotlib.pyplot as plt
+from keras.utils import plot_model 
 
 
 vgg16_model = keras.applications.vgg16.VGG16()
@@ -32,14 +28,16 @@ for layer in model.layers:
     layer.trainable = False
 
 
-model.add(Dense(6, activation='linear'))
+model.add(Dense(6, activation=None)) #or linear
 
 #compile model before saving
 #model.compile(Adam(lr=.0001), loss='sparse_categorical_crossentropy', metrics=['accuracy']) 
 
-model.compile(Adam(lr=.0001), loss='mean_squared_error', metrics=['accuracy'])
+#model.compile(Adam(lr=.0001), loss='mean_squared_error', metrics=['accuracy'])
 
 model.save('vgg16_edit.h5')
 model.summary()
+
+plot_model(model, to_file='model.png')
 
 print('\n\n**********************\nModel saved')
