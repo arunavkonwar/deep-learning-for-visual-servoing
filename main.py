@@ -24,7 +24,7 @@ batch_size = 14
 
 #loading pretrained and edited model
 #model = load_model('vgg16_edit.h5')
-model = load_model('trained_model.h5')
+model = load_model('vgg16_edit.h5')
 
 
 y_filename ='./data/data.txt'
@@ -51,7 +51,8 @@ callbacks_list = [checkpoint, metrics]
 # Configure the training process:
 print('Preparing training ...')
 #adam = Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
-adam = Adam(lr=0.0001)
+#adam = Adam(lr=0.0001)
+adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 #sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(optimizer=adam, loss='mean_squared_error', metrics=['accuracy'])
 

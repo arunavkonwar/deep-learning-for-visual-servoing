@@ -15,7 +15,7 @@ from sklearn.metrics import confusion_matrix
 import itertools
 import matplotlib.pyplot as plt
 import h5py
-import tensorflow as tf
+
 
 from os import listdir
 from os.path import isfile, join
@@ -23,22 +23,12 @@ import numpy as np
 import cv2
 import time
 
-from keras.models import model_from_config #new
-#from tensorflow_serving.session_bundle import exporter #new
-from tensorflow.contrib.session_bundle import exporter
-
-
-
-sess = tf.Session()
-tf.initialize_all_variables().run(session=sess)
-
-K.set_learning_phase(0)  # all new operations will be in test mode from now on
-
 model = load_model('trained_model.h5')
 
 
-#mypath='./data/train' 
-img = cv2.imread('1.jpg')
+mypath='./data/train' 
+#img = cv2.imread(mypath+'/2.jpg')
+img = cv2.imread('lel.jpg')
 img_1 = cv2.resize(img, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
 img_main = img_1 [np.newaxis,...]  # dimension added to fit input size
 
@@ -48,8 +38,8 @@ prediction = model.predict(img_main)
 end = time.time()
 print ("\n\n****************************\n\nModel took %0.2f seconds to predict\n\n****************************\n"%(end - start))
 print(prediction)
-
-
+print "shape"
+print(prediction.shape)
 
 
 

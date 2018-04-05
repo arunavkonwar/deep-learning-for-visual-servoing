@@ -35,4 +35,9 @@ h5f.create_dataset('dataset_1', data=images)
 login to remote server through ssh
 
 akonwar@gantry.irisa.fr
-pass: KRi+w0(+
+@Lonpaul123..
+
+
+scp arunav@arunav-HP-EliteBook-840-G1:/Downloads/cudnn-9.0-linux-x64-v7.1.tgz
+
+scp ./cudnn-9.0-linux-x64-v7.1.tgz root@gantry.irisa.fr:~/download
