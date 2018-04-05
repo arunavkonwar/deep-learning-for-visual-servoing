@@ -43,6 +43,7 @@ img_1 = cv2.resize(img, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
 img_main = img_1 [np.newaxis,...]  # dimension added to fit input size
 
 
+
 start = time.time()
 prediction = model.predict(img_main)
 end = time.time()
