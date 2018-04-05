@@ -36,7 +36,7 @@ if __name__ == '__main__':
 	import struct
 	import codecs
 
-
+	open('result.txt', 'w').close()
 	#mypath='./data/train' 
 	model = initializeNetwork()
 	print "/nModel initialized..."
@@ -95,39 +95,3 @@ if __name__ == '__main__':
 	#f2.close()
 	
 	
-	'''
-	array = struct.unpack(strLength, f.read(arraySize*4)) # Reading the actual array
-
-	print 'Received array size = ', len(array)
-	f.close()
-	print array.shape()
-
-
-	imageSize1 = 224 
-	imageSize2 = 224 
-
-	image = np.zeros((imageSize1, imageSize2, 3), float, 'C')
-
-	imageTmp = np.reshape(array, (imageSize1, imageSize2), order='F')/255.0
-	image = np.zeros((imageSize1, imageSize2, 3), float, 'C')
-	image[:, :, 0] = imageTmp
-	image[:, :, 1] = imageTmp
-	image[:, :, 2] = imageTmp  
-
-	arraySize = model.predict(image)
-
-	print 'Sending data back ; ArraySize'
-	wp = open(file2Path, 'w')
-	wp.write(struct.pack('>i',arraySize))
-
-	print 'Sending data back ; FLOAT_Array'
-	#wp = open(file2Path, 'w')
-	packed = struct.pack('<'+`arraySize`+'f', *desc)
-	#print 'sending = ' + `packed`
-	wp.write(packed)
-	wp.close()
-
-	print 'Array Sent'
-
-	print 'Ending handshake.'
-	'''
