@@ -29,18 +29,14 @@ from tensorflow.contrib.session_bundle import exporter
 
 
 
-sess = tf.Session()
-tf.initialize_all_variables().run(session=sess)
-
-K.set_learning_phase(0)  # all new operations will be in test mode from now on
 
 model = load_model('trained_model.h5')
 
 
 #mypath='./data/train' 
 img = cv2.imread('819.jpg')
-img_1 = cv2.resize(img, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
-img_main = img_1 [np.newaxis,...]  # dimension added to fit input size
+#img_1 = cv2.resize(img, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
+img_main = img [np.newaxis,...]  # dimension added to fit input size
 
 
 

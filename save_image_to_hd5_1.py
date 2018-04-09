@@ -9,7 +9,7 @@ import h5py
 #path to directory	
 #images already in (224, 224, 3) format
 
-mypath='./data/train' 
+mypath='../../code-new/binary/generated_images' 
 img = cv2.imread(mypath+'/1.jpg')
 #print(img.shape)
 onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
