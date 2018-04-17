@@ -11,21 +11,23 @@ def vgg16():
 	from keras.utils import plot_model 
 
 
-	vgg16_model = keras.applications.vgg16.VGG16()
-
+	#vgg16_model = keras.applications.vgg16.VGG16()
+	inception_model = keras.applications.inception_v3.InceptionV3(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+	
+	'''
 	model = Sequential()
 	for layer in vgg16_model.layers:
 		model.add(layer)
 	
-	model.layers.pop()
+	#model.layers.pop()
 	
-	model.add(Dense(2, activation=None))
+	#model.add(Dense(2, activation=None))
 	
 	for layer in model.layers:
 		layer.trainable = True
-		
-	model.summary()
-	return model
+	'''
+	inception_model.summary()
+	return inception_model
 
 
 
@@ -44,7 +46,7 @@ if __name__ == "__main__":
 	import h5py
 	from keras.utils import plot_model
 	#from keras.callbacks import ModelCheckpoint
-	import utils
+	#import utils
 	#import models
 	import time
 	from keras.callbacks import ModelCheckpoint
